@@ -12,13 +12,13 @@ contract Erc1155  is ERC1155 {
       //If you do not have any VISUALART the contract will let you buy one
     function mintVisualArt() public{
      require(balanceOf(msg.sender, VISUALART) == 0,"you already have VisualArt ");
-     _mint(msg.sender,0,1,"0x000");
+     _mint(msg.sender,VISUALART,1,"0x000");
     }
 
     //If you do not have any MUSIC and have VISUALART the contract will let you buy the Music
     function mintMusic() public{
      require(balanceOf(msg.sender,VISUALART) > 0,"you need to have VisualArt");
      require(balanceOf(msg.sender,MUSIC) == 0,"you already have Music");
-     _mint(msg.sender,1,1,"0x000");
+     _mint(msg.sender,MUSIC,1,"0x000");
     }
 }
